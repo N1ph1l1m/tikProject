@@ -1,2 +1,5 @@
-<h1>Testtt</h1>
-<app-profile-card></app-profile-card>
+<div class="profile-card_wrapper">
+  @for(profile of profiles; track profile.id){
+  <app-profile-card [profile]="profile"> </app-profile-card>
+  }
+</div>
