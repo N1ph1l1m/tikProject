@@ -6,6 +6,7 @@ import { ImgUrlPipe } from "../../helpers/pipes/img-url-pipe";
   selector: 'app-profile-card',
   imports: [ImgUrlPipe],
   templateUrl: './profile-card.html',
+  standalone: true,
   styleUrl: './profile-card.scss',
 })
 export class ProfileCard {
