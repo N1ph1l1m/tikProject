@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal} from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Auth } from '../../auth/auth';
 import { Router } from '@angular/router';
@@ -13,9 +13,11 @@ import { Router } from '@angular/router';
 export class LoginPage {
   authservice = inject(Auth)
   router = inject(Router)
+  isPasswordVisible = signal<boolean>(false);
   form = new FormGroup({
   username: new FormControl("Niiphilim" , Validators.required),
   password: new FormControl("bqNVvYcmc4" , Validators.required)
+
 })
 
 onSubmit(){
@@ -23,11 +25,12 @@ onSubmit(){
     //@ts-ignore
     this.authservice.login(this.form.value).subscribe(res=>{
       this.router.navigate([''])
-
-
     })
 
   }
 
+}
+isVisible(){
+this.isPasswordVisible.set(!this.isPasswordVisible())
 }
 }

@@ -5,6 +5,8 @@
   --light-color: #ffffff;
   --primary-color: #ae7aff;
   --gray-color:#5F646D;
+  --visible-color:#FFFFFFBF;
+  --dark-hover-color:#161616;
 }
 
 *,
@@ -96,4 +98,8 @@ font-weight: 800;
   line-height: 21px;
   font-family: "JetBrains Mono", sans-serif;
   color: var(--light-color);
+}
+.menu-item .svgIcon{
+
+
 }

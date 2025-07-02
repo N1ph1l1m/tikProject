@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { SideBar } from '../side-bar/side-bar';
 import { Profile } from '../../data/services/profile';
 
+
 @Component({
   selector: 'app-layout',
   standalone: true,
