@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { IProfile } from '../../data/interfaces/profile.interface';
-import { Profile } from '../../data/services/profile';
+import {  ProfileService } from '../../data/services/profileService';
 import { ProfileCard } from '../../common-ui/profile-card/profile-card';
 import { ChangeDetectorRef } from '@angular/core';
 @Component({
@@ -11,7 +11,7 @@ import { ChangeDetectorRef } from '@angular/core';
   styleUrl: './search-page.scss'
 })
 export class SearchPage {
-  profileService = inject(Profile);
+  profileService = inject(ProfileService);
   profiles: IProfile[] = [];
 
   constructor(private cdr: ChangeDetectorRef) {

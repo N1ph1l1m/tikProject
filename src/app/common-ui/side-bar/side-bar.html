@@ -1,14 +1,44 @@
-<img src="/assets/svg/Content.svg" alt="logoSmall"/>
+<img src="/assets/svg/logo-small.svg" alt="logoSmall" />
 <nav>
-    <ul class="main-menu-list">
-        <li>
-            <button class="menu-item">
-                <svg icon="home"></svg>
-                <span>Моя страница</span>
-                <span></span>
-            </button>
+  <ul class="main-menu-list">
+    @for(menuItem of menuItems; track menuItem){
+    <li>
+      <button class="menu-item">
+        <svg class="menu-icon-svg" [icon]="menuItem.icon"></svg>
+        <span>{{ menuItem.label }}</span>
+        <span></span>
+      </button>
+    </li>
+    }
+    <p class="medium-text mb20">Подписчики</p>
+  </ul>
 
 
-        </li>
-    </ul>
+  @for(profile of  subscribers$ | async;track profile.id){
+  <app-subscriber-card
+  [profile]="profile"
+  ></app-subscriber-card>
+  }
+
+  <div class="to-subscribers mt20">
+    <a  [routerLink]="['/subscribers']" class="to-subscribers-link medium-text" >
+        Все подписчики
+    </a>
+    <svg class="to-subscribers-icon" icon="arrow"></svg>
+  </div>
 </nav>
+
+
+<footer class="sidebar__footer">
+@if(me();as me){
+   @if(me.avatarUrl){
+     <img class="sidebar__footer_avatar" [src]="me.avatarUrl | imgUrl" alt=""/>
+   }@else {
+       <img class="sidebar__footer_avatar" src="/assets/img/avatar.png" alt=""/>
+   }
+}
+<div class="medium-text username-text">{{me()?.firstName }}</div>
+<a [routerLink]="['settings']" class="settings-btn">
+    <svg icon="settings"></svg>
+</a>
+</footer>

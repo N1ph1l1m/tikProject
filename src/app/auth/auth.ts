@@ -18,6 +18,7 @@ export class Auth {
 
 
   token:string | null = null;
+  id:string | null = null;
   refreshToken:string |null  = null;
 
   get isAuth(){
@@ -58,9 +59,11 @@ export class Auth {
 
   saveTokens(res:ITokenResponse){
     this.token = res.access_token
+    this.id = res.id
     this.refreshToken = res.refresh_token
     this.cookieService.set("token",this.token)
     this.cookieService.set("refreshToken", this.refreshToken)
+    this.cookieService.set("idAccount", this.id)
   }
 
   refrestAuthToken(){
