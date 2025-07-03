@@ -24,11 +24,14 @@ export class ProfileService {
       tap( res => this.me.set(res))
     )
   }
-  getSubscribersShortList(){
+  getSubscribersShortList(subsAmount:number = 3){
     return this.http.get<IPageble<IProfile>>(`${this.baseApiUrl}account/subscribers/${this.id}`)
     .pipe(
-      map(res => res.items.slice(0,3))
+      map(res => res.items.slice(0,subsAmount))
 )
   }
 
+  getAccount(id:string){
+    return this.http.get<IProfile>(`${this.baseApiUrl}account/${id}`)
+  }
 }
