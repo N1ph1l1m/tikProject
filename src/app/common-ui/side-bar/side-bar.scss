@@ -62,14 +62,22 @@ list-style: none;
 .sidebar__footer{
     background:var(--dark-hover-color);
     border-radius:2px;
-    padding: 4px 16px;
-    display:grid;
-    grid-template-columns: 32px 1fr 16px;
-    grid-gap:12px;
+    padding: 4px 5px;
+    display:flex;
+    justify-content: space-between;
     align-items:center;
     position: absolute;
     bottom:20px;
     width: calc(100% - 20px);
+}
+.sidebar__footer_link{
+    display: flex;
+    flex-direction: row;
+    gap:10px;
+    align-items:center;
+    text-decoration: none;
+
+
 }
 .sidebar__footer_avatar{
     border-radius:50%;

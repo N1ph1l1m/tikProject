@@ -30,6 +30,7 @@
 
 
 <footer class="sidebar__footer">
+<a class="sidebar__footer_link" [routerLink]="[`profile/${me()?.id}`]">
 @if(me();as me){
    @if(me.avatarUrl){
      <img class="sidebar__footer_avatar" [src]="me.avatarUrl | imgUrl" alt=""/>
@@ -38,6 +39,8 @@
    }
 }
 <div class="medium-text username-text">{{me()?.firstName }}</div>
+</a>
+
 <a [routerLink]="['settings']" class="settings-btn">
     <svg icon="settings"></svg>
 </a>
