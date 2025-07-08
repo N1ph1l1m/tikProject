@@ -1,43 +1,61 @@
- <app-profile-header >
-
- </app-profile-header>
+<app-profile-header> </app-profile-header>
 
 <form class="profile-form__wrapper" [formGroup]="form">
-    <div class="profile-form" >
-        <div class="two-columns mb16">
-        <label class="tt-form-label">
-            <span class="tt-form-label__text">Имя </span>
-            <input type="text" class="tt-form-input" FormControlName = "firstName">
-        </label>
+  <div class="profile-form">
+    <div class="two-columns mb16">
+      <label class="tt-form-label">
+        <span class="tt-form-label__text">Имя </span>
+        <input type="text" class="tt-form-input" formControlName="firstName" />
+      </label>
 
-            <label class="tt-form-label">
-            <span class="tt-form-label__text">Фамилия</span>
-            <input type="text" class="tt-form-input" FormControlName = "lastName">
-        </label>
+      <label class="tt-form-label">
+        <span class="tt-form-label__text">Фамилия</span>
+        <input type="text" class="tt-form-input" formControlName="lastName" />
+      </label>
     </div>
 
-        <label class="tt-form-label mb16">
-            <span class="tt-form-label__text">Telegram username </span>
-            <input disabled type="text" class="tt-form-input" FormControlName = "username">
-        </label>
+    <label class="tt-form-label mb16">
+      <span class="tt-form-label__text">Telegram username </span>
+      <input
+        [disabled]="true"
+        type="text"
+        class="tt-form-input"
+        formControlName="username"
+      />
+    </label>
 
-                   <label class="tt-form-label mb16">
-            <span class="tt-form-label__text">О себе</span>
-            <textarea  class="tt-form-input tt-textarea" formControlName="description"></textarea>
+    <label class="tt-form-label mb16">
+      <span class="tt-form-label__text">О себе</span>
+      <textarea
+        class="tt-form-input tt-textarea"
+        formControlName="description"
+      ></textarea>
+    </label>
 
-        </label>
+    <label class="tt-form-label mb16">
+      <span class="tt-form-label__text">Avatar</span>
+      <app-avatar-upload></app-avatar-upload>
+    </label>
 
-            <label class="tt-form-label mb16">
-            <span class="tt-form-label__text">Навыки </span>
-            <input type="text" class="tt-form-input" FormControlName = "stack">
-        </label>
+    <label class="tt-form-label mb16">
+      <span class="tt-form-label__text">Навыки </span>
+      <input type="text" class="tt-form-input" formControlName="stack" />
+    </label>
+  </div>
+  <div class="profife-form_wrap">
+    <div class="profile-form_wrapMenu">
+      <button (click)="logOut()">
+            <svg  class="profile-form_menu_svg" icon="logout"></svg>
+      </button>
+      <button (click)="clearForm()">
+          <svg class="profile-form_menu_svg" icon="trash"></svg>
+      </button>
+
 
     </div>
-    <div>
-        <div></div>
-        <div class="profile-form__wrapButtons">
-             <button class="btn">Отменить</button>
-            <button  (click)="onSave()" class="btn">Сохранить</button>
-        </div>
+    <div class="profile-form__wrapButtons">
+      <button class="btn" (click)="goBack()">Отменить</button>
+      <button type="button" (click)="onSave()" class="btn">Сохранить</button>
     </div>
+  </div>
 </form>

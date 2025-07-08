@@ -12,6 +12,7 @@ export class ProfileService {
   cookieService = inject(CookieService)
   baseApiUrl = 'https://icherniakov.ru/yt-course/';
   id = this.cookieService.get("id")
+
   // constructor() {}
   me = signal<IProfile | null>(null)
 
@@ -37,5 +38,11 @@ export class ProfileService {
 
   patchProfile(profile:Partial<IProfile>){
     return this.http.patch<IProfile>(`${this.baseApiUrl}account/me`,profile)
+  }
+
+  uploadAvatar(file:File){
+    const fd = new FormData()
+    fd.append('image',file)
+    return this.http.post<IProfile>(`${this.baseApiUrl}account/upload_image`, fd)
   }
 }

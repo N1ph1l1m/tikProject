@@ -29,21 +29,52 @@ grid-gap: 20px;
     grid-gap:20px;
 }
 .profile-label{
+    display: flex;
+}
+.profife-form_wrap{
+    width: 100%;
+
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.profile-form_wrapMenu{
+padding: 0px;
+height: 44px;
+}
+.profile-form_wrapMenu button{
+    margin: 0px;
+    padding: 0px;
+    background:transparent;
+    cursor: pointer;
+    border:0px;
 
 }
+.profile-form_wrapMenu button:first-child{
+    margin-right: 10px;
+}
+.profile-form_menu_svg{
+    border:1px solid var(--light-color);
+    box-sizing: border-box;
+    padding: 14px;
+    width: 44px;
+    height: 44px;
+    border-radius:4px;
+    color:var(--light-color);
+    margin: 0px;
+}
+
 .profile-form__wrapButtons{
     display: flex;
-    flex-direction: row;
-
-    right: -54px;
-    bottom:20px;
     gap:10px;
-    justify-content: flex-end;
+    box-sizing: border-box;
+    height: 44px;
 
 }
 .profile-form__wrapButtons{
     button{
-        // width: 150px;
         cursor: pointer;
+        margin: 0px;
     }
 }

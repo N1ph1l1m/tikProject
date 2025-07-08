@@ -66,7 +66,7 @@ export class Auth {
     this.cookieService.set("idAccount", this.id)
   }
 
-  refrestAuthToken(){
+   refrestAuthToken(){
     return  this.http.post<ITokenResponse>(`${this.baseApiUrl}token`,
     {
       refresh_token:this.refreshToken,

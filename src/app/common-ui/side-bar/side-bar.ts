@@ -24,7 +24,7 @@ me = this.profileService.me
   {
    label:"Моя страница",
    icon:"home",
-  link:""
+    link:"profile/me"
   },
    {
    label:"Чаты",
@@ -34,7 +34,7 @@ me = this.profileService.me
    {
    label:"Поиск",
    icon:"search",
-   link:"search"
+   link:""
   }
  ]
  ngOnInit(){
