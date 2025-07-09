@@ -1,7 +1,9 @@
-import { Component, signal } from '@angular/core';
+
+import { Component, inject, signal } from '@angular/core';
 import { SvgIcon } from '../../../common-ui/svg-icon/svg-icon';
 import { Dnd } from '../../../common-ui/directives/dnd';
 import { FormsModule } from '@angular/forms';
+import { ProfileService } from '../../../data/services/profileService';
 
 @Component({
   selector: 'app-avatar-upload',
@@ -11,7 +13,9 @@ import { FormsModule } from '@angular/forms';
 })
 export class AvatarUpload {
 
-preview = signal<string>("assets/img/defaultAvatar.png")
+profileService = inject(ProfileService)
+me = this.profileService.me()
+preview = signal<string>( "assets/img/defaultAvatar.png")
 
 avatar  :File | null = null
 
@@ -24,6 +28,8 @@ fileBrowserHandler(event:Event){
 onFileDroped(file:File){
   this.processFile(file)
 }
+
+
 
 
 processFile(file:File | null | undefined ){

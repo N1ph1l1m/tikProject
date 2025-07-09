@@ -1,3 +1,4 @@
+import { filter } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { IProfile } from '../interfaces/profile.interface';
@@ -15,6 +16,7 @@ export class ProfileService {
 
   // constructor() {}
   me = signal<IProfile | null>(null)
+  filteredProfiles = signal<IProfile[]>([])
 
   getTestAccounts() {
     return this.http.get<IProfile[]>(`${this.baseApiUrl}account/test_accounts`);
@@ -45,4 +47,12 @@ export class ProfileService {
     fd.append('image',file)
     return this.http.post<IProfile>(`${this.baseApiUrl}account/upload_image`, fd)
   }
+
+  filterProfiles(params:Record<string,any>){
+    return this.http.get<IPageble<IProfile>>(`${this.baseApiUrl}account/accounts`,{params}).pipe(
+      tap(res => this.filteredProfiles.set(res.items))
+    )
+  }
+
+
 }
